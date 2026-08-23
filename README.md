@@ -1,6 +1,6 @@
 # The Turing Project
 
-#IN DEVELOPEMENT
+# IN DEVELOPEMENT
 A starter prototype for detecting (a) synthetically manipulated media ("deepfakes")
 and (b) text claims that misrepresent government proceedings/policy, grounded against
 PIB (Press Information Bureau, Government of India) Fact Check outputs and other
