@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Turing Project — Multimodal Deepfake & Synthetic Forensics (2026)</title>
+  <meta name="description" content="Multimodal multimodal deepfake and synthetic media detector for audio, video, text, images, and documents using 2026 benchmarks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">The Turing Project <span class="badge-year">2026</span></h1>
+          <p class="brand-subtitle">Multimodal Deepfake & Misinformation Forensic Engine</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <div class="engine-status">
+          <span class="status-pulse"></span>
+          <span class="status-text">Neural Engine Active (MPS/CUDA)</span>
+        </div>
+        <button id="btn-view-datasets" class="btn-ghost">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          2026 Datasets Catalog
+        </button>
+      </div>
+    </header>
+
+    <!-- Modality Selector Bar -->
+    <nav class="modality-nav" aria-label="Modality Selection">
+      <button class="nav-tab active" data-modality="image" id="tab-image">
+        <span class="tab-badge">IMG</span>
+        <span class="tab-name">Image Forensics</span>
+        <span class="tab-pill">FLUX / SD3 / MJ</span>
+      </button>
+      <button class="nav-tab" data-modality="audio" id="tab-audio">
+        <span class="tab-badge">AUD</span>
+        <span class="tab-name">Audio & Voice</span>
+        <span class="tab-pill">ElevenLabs / VALL-E</span>
+      </button>
+      <button class="nav-tab" data-modality="video" id="tab-video">
+        <span class="tab-badge">VID</span>
+        <span class="tab-name">Video & LipSync</span>
+        <span class="tab-pill">Sora / Kling / Roop</span>
+      </button>
+      <button class="nav-tab" data-modality="text" id="tab-text">
+        <span class="tab-badge">TXT</span>
+        <span class="tab-name">Text & LLMs</span>
+        <span class="tab-pill">GPT-4o / Claude 3.5</span>
+      </button>
+      <button class="nav-tab" data-modality="document" id="tab-document">
+        <span class="tab-badge">DOC</span>
+        <span class="tab-name">Document Forgery</span>
+        <span class="tab-pill">PDF / Invoice Tampering</span>
+      </button>
+      <button class="nav-tab" data-modality="news" id="tab-news">
+        <span class="tab-badge">NEWS</span>
+        <span class="tab-name">News & Claims</span>
+        <span class="tab-pill">Factuality / Scams</span>
+      </button>
+    </nav>
+
+    <!-- Main Workspace Grid -->
+    <main class="workspace-grid">
+      <!-- Input Panel -->
+      <section class="panel glass input-panel">
+        <div class="panel-header">
+          <h2 class="panel-title" id="panel-input-title">Image Analysis Input</h2>
+          <span class="panel-subtitle">Upload or test sample media</span>
+        </div>
+
+        <!-- Dynamic Modality Inputs -->
+        <!-- 1. Image Panel -->
+        <div class="modality-view active" id="view-image">
+          <div class="dropzone" id="dropzone-image">
+            <div class="dropzone-badge">IMAGE DROPZONE</div>
+            <p class="dropzone-text">Drag & drop image file or <span class="link-span">browse</span></p>
+            <p class="dropzone-hint">Supports PNG, JPG, WebP (Analyzes FFT, ELA & Sensor PRNU)</p>
+            <input type="file" id="input-file-image" accept="image/*" class="file-hidden">
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="image-diffusion">Synthetic Diffusion (FLUX.1)</button>
+            <button class="btn-preset" data-preset="image-real">Authentic Camera RAW</button>
+          </div>
+        </div>
+
+        <!-- 2. Audio Panel -->
+        <div class="modality-view" id="view-audio">
+          <div class="dropzone" id="dropzone-audio">
+            <div class="dropzone-badge">AUDIO DROPZONE</div>
+            <p class="dropzone-text">Upload audio sample or <span class="link-span">browse</span></p>
+            <p class="dropzone-hint">WAV / MP3 (Inspects LFCC, Phase jitter & Vocoder aliasing)</p>
+            <input type="file" id="input-file-audio" accept="audio/*" class="file-hidden">
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="audio-cloned">Neural Voice Clone (ElevenLabs)</button>
+            <button class="btn-preset" data-preset="audio-human">Human Speech Audio</button>
+          </div>
+        </div>
+
+        <!-- 3. Video Panel -->
+        <div class="modality-view" id="view-video">
+          <div class="dropzone" id="dropzone-video">
+            <div class="dropzone-badge">VIDEO DROPZONE</div>
+            <p class="dropzone-text">Upload video clip or keyframe sequence</p>
+            <p class="dropzone-hint">Temporal warp jitter, spatiotemporal 3D-CNN & AV-sync</p>
+            <input type="file" id="input-file-video" accept="video/*" class="file-hidden">
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="video-sora">Generative Video (Sora/Kling)</button>
+            <button class="btn-preset" data-preset="video-authentic">Natural Broadcast Video</button>
+          </div>
+        </div>
+
+        <!-- 4. Text Panel -->
+        <div class="modality-view" id="view-text">
+          <div class="text-input-wrap">
+            <textarea id="input-text-area" class="code-textarea" placeholder="Paste article, disinformation claim, or suspicious text to analyze for LLM burstiness, perplexity, and formulaic stylometry..." rows="8"></textarea>
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="text-gpt4">LLM Disinformation (GPT-4o)</button>
+            <button class="btn-preset" data-preset="text-human">Human News Report</button>
+          </div>
+        </div>
+
+        <!-- 5. Document Panel -->
+        <div class="modality-view" id="view-document">
+          <div class="dropzone" id="dropzone-doc">
+            <div class="dropzone-badge">DOCUMENT DROPZONE</div>
+            <p class="dropzone-text">Upload PDF invoice, receipt, ID card, or contract</p>
+            <p class="dropzone-hint">Audits metadata revisions, ELA compression, font sharpness disparity, & CMFD</p>
+            <input type="file" id="input-file-doc" accept=".pdf,image/*" class="file-hidden">
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="doc-forged">Tampered Invoice (Altered Total)</button>
+            <button class="btn-preset" data-preset="doc-authentic">Original Scanned Contract</button>
+          </div>
+        </div>
+
+        <!-- 6. News & Claims Panel -->
+        <div class="modality-view" id="view-news">
+          <div class="text-input-wrap">
+            <textarea id="input-news-area" class="code-textarea" placeholder="Paste headline, WhatsApp forwarded message, or viral news claim to verify source credibility, sensationalism index, and rural scam heuristics..." rows="8"></textarea>
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="news-welfare">Rural Welfare Scheme Hoax</button>
+            <button class="btn-preset" data-preset="news-panic">Child Lifter Mob Rumor</button>
+            <button class="btn-preset" data-preset="news-credible">Credible Wire News (Reuters/WHO)</button>
+            <button class="btn-preset" data-preset="news-satire">Satire Article (The Onion)</button>
+          </div>
+        </div>
+
+        <button id="btn-run-analysis" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Execute Forensic Scan</span>
+        </button>
+      </section>
+
+      <!-- Results & Explainability Panel -->
+      <section class="panel glass results-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Forensic Assessment & Verification</h2>
+          <span class="panel-subtitle" id="scan-timestamp">Awaiting input</span>
+        </div>
+
+        <!-- Overall Score Card -->
+        <div class="verdict-banner" id="verdict-banner">
+          <div class="verdict-info">
+            <span class="verdict-tag" id="verdict-tag">READY</span>
+            <h3 class="verdict-title" id="verdict-title">Select media and start scan</h3>
+            <p class="verdict-desc" id="verdict-desc">The Turing Project analyzes frequency spectra, compression ELA, neural vocoder phase, spatiotemporal coherence, and stylometric burstiness.</p>
+          </div>
+          <div class="gauge-wrap">
+            <div class="gauge-circle" id="gauge-circle">
+              <span class="gauge-value" id="gauge-value">--%</span>
+              <span class="gauge-label">FAKE PROB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Democratic Polling Committee (Odd Ensemble - 3 Forensic Models) -->
+        <div class="forensics-section" id="section-polling">
+          <div class="section-header-row">
+            <div>
+              <span class="badge-pill">ODD ENSEMBLE (3 FORENSIC MODELS)</span>
+              <h3 class="section-title">Democratic Model Polling Committee</h3>
+            </div>
+            <div class="tally-pill" id="polling-tally-pill">3 vs 0 Consensus</div>
+          </div>
+          <div class="polling-cards-grid" id="polling-cards-grid">
+            <!-- Dynamically populated from JS -->
+          </div>
+        </div>
+
+        <!-- Forensic Signals List -->
+        <div class="forensics-section">
+          <h3 class="section-title">Detected Artifacts & Forensic Markers</h3>
+          <ul class="signals-list" id="signals-list">
+            <li class="signal-item placeholder">No anomalies detected yet.</li>
+          </ul>
+        </div>
+
+        <!-- Multi-domain Metrics Grid -->
+        <div class="forensics-section">
+          <h3 class="section-title">Deep Domain Telemetry</h3>
+          <div class="metrics-grid" id="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-name">Frequency Power-law Slope</span>
+              <span class="metric-val" id="metric-fft-slope">--</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-name">ELA Inconsistency</span>
+              <span class="metric-val" id="metric-ela">--</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-name">Sensor Noise Std (PRNU)</span>
+              <span class="metric-val" id="metric-prnu">--</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-name">Neural Model Logits</span>
+              <span class="metric-val" id="metric-neural">--</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Datasets Modal -->
+    <div class="modal-overlay hidden" id="modal-datasets">
+      <div class="modal glass">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title">2026 Deepfake Benchmark Datasets</h3>
+            <p class="modal-subtitle">Curated ground truth datasets for training, evaluation, and cross-model generalization</p>
+          </div>
+          <button class="btn-close" id="btn-close-modal">✕</button>
+        </div>
+        <div class="modal-body" id="datasets-table-wrap">
+          <!-- Dynamically populated from JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

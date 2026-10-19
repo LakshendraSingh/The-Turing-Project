@@ -1,0 +1,102 @@
+[
+  {
+    "text": "Reuters reports that wholesale food grain price indices remained steady across primary agricultural terminal markets.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The European Central Bank confirmed interest rate adjustments aligned with forecasted medium-term inflation target trajectories.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Associated Press reports that national park rangers recorded the first documented sighting of a snow leopard cub in the high sanctuary this spring.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official gazette notification confirmed the implementation of revised consumer protection rules for cross-border electronic commerce.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "BBC News reports that municipal authorities inaugurated a four-hundred-megawatt solar photovoltaic installation on decommissioned industrial land.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to an announcement by the Indian Space Research Organisation, the solar observation observatory payload completed its calibration phase.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "A comprehensive study published in Nature Climate Change quantified the carbon sequestration potential of restored coastal mangrove ecosystems.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Associated Press reported that representatives from thirty nations signed an accord strengthening regulations against illegal maritime fishing.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Reuters reports that the industrial production index increased by 4.2 percent in the preceding quarter driven by capital goods manufacturing.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "World Health Organization officials confirmed that the regional polio vaccination campaign achieved ninety-five percent target community coverage.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Child lifter alert: Women begging in disguise are kidnapping young infants from village cradles. Share immediately to every WhatsApp group!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Instant cash reward! You have won Rs 7500000 in international lottery scheme! Send processing fee of Rs 2000 to release fund transfer!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "BREAKING EXPOSE: Scientists reveal terrifying truth about microwave ovens that causes instant DNA mutation. Stop using microwaves immediately!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Forward to everyone: Free smartphone yojana 2026 distribution starts today. Click link to verify village voter list and receive handset!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "MIRACLE REMEDY: Sniffing mustard oil kills all viruses inside nasal passage instantly according to viral video. Forward to save lives!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "URGENT: Government announced complete cancellation of all agricultural bank loans. Click here to download your loan waiver certificate!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Unbelievable miracle! Holy water from local spring cures blindness and paralysis within 24 hours. Forward before authorities shut it down!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHOCKING BOMBSHELL: Proof that vaccines contain magnetic microchips that track your exact location via satellite. Wake up and refuse!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Free electric bicycle scheme for all rural youth! Apply now with your Aadhaar number at http://pm-free-cycle-yojana.scam.net!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "ALERT TO PARENTS: Gang using toxic sweets to drug schoolchildren at gate! Share this alert with every parent and school group right now!",
+    "label": 1,
+    "category": "disinformation_scam"
+  }
+]

@@ -1,0 +1,29 @@
+# Environments
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# System & IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Weights & Data
+weights/*.pt
+!weights/*_best.pt
+!weights/*_model_*.pt
+weights/*.pth
+weights/*.onnx
+data/
+!data/benchmark/news/
+!data/benchmark/news/*
+!data/test_benchmark/news/
+!data/test_benchmark/news/*
+datasets/
+cache/
+logs/
+results/

@@ -1,0 +1,402 @@
+[
+  {
+    "text": "According to Reuters, the Federal Reserve decided to maintain its benchmark interest rate following the conclusion of its two-day policy meeting in Washington.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Associated Press reported that international diplomatic envoys gathered in Geneva to negotiate a regional maritime transit treaty.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "BBC News confirms that European regulators have finalized updated safety standards for civilian uncrewed aerial vehicles operating in urban corridors.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official data released by the Bureau of Labor Statistics indicates that consumer price inflation moderated to 2.4 percent annualized.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to the World Health Organization, global surveillance data shows a thirty percent reduction in malaria transmission in certified elimination zones.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "A peer-reviewed clinical trial published in The Lancet confirms that the novel mRNA therapeutic demonstrated efficacy in reducing recurrence rates.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official statistics from the Ministry of Finance showed tax collections expanded by eleven percent year-over-year in the latest quarterly filing.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Agence France-Presse reported that archaeologists in southern Greece uncovered a bronze age administrative seal dating to the fourteenth century BCE.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "In a formal statement issued by the United Nations High Commissioner for Refugees, humanitarian convoys successfully reached three distribution hubs.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "NASA and the European Space Agency confirmed the successful orbital insertion of the joint atmospheric monitoring satellite.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to official figures from the Reserve Bank of India, foreign direct investment inflows reached a four-quarter high in manufacturing sectors.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "A study published in the journal Nature demonstrates that coral reef restoration projects with thermal-tolerant strains show forty percent higher survival.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Centers for Disease Control and Prevention released updated seasonal influenza guidance recommending vaccination prior to late autumn.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Associated Press reports that municipal authorities in Tokyo have commenced construction on expanded underground stormwater containment cisterns.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to an official press release from the Department of Agriculture, grain reserves remain at adequate buffer stock levels for the winter harvest.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Reuters reports that international maritime shipping rates stabilized after alternative canal transit schedules were coordinated by port operators.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "A report published in the Proceedings of the National Academy of Sciences analyzed fifty years of meteorological data from high-altitude stations.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Government of India portal announced the formal schedule for civil service examinations across all designated regional testing centers.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to the BBC, engineers in Scotland completed installation of the largest floating offshore wind turbine array to date.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The World Bank published its regional economic outlook, projecting moderate growth across emerging South Asian economies over the next fiscal cycle.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official statement released by the Ministry of Education outlines new STEM curriculum frameworks for secondary schools starting next academic session.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to Reuters, energy ministers concluded bilateral agreements on cross-border transmission grid interconnections.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Researchers from Stanford University published findings on low-power semiconductor architectures in the IEEE Journal of Solid-State Circuits.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Associated Press reported that conservation agencies observed an increase in the nesting population of loggerhead sea turtles.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Statement released by the International Energy Agency indicates global solar power generation capacity expanded by twenty-two percent in the past year.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to official court filings, the appellate bench reserved its judgment on statutory administrative interpretation after hearing concluding arguments.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "BBC World Service reported that the regional transport authority completed electrification of the main regional freight railway line.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Indian Meteorological Department issued a seasonal advisory forecasting normal monsoon rainfall distribution across northern agricultural belts.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Reuters reports that municipal councils approved new zoning regulations aimed at increasing affordable housing units near suburban transit stations.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Scientific researchers confirmed in a paper published in Science that ancient permafrost core samples revealed previously undocumented microbial enzymes.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official bulletin from the Ministry of External Affairs confirmed the bilateral trade delegation visit concluded with five signed cooperation memoranda.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Associated Press reported that university researchers developed a water filtration membrane utilizing recycled agricultural husks.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Public health officials in Ontario announced expanded pediatric vaccination clinics across regional healthcare networks.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Reuters wire dispatch reports that the sovereign debt rating was affirmed with a stable outlook following conservative fiscal deficit management.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to data from the National Oceanic and Atmospheric Administration, sea surface temperature anomalies eased during the late spring transition.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "The Supreme Court of India delivered a unanimous verdict upholding standard contractual arbitration procedures under the commercial code.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Associated Press reports that the international botanical conservation congress adopted a ten-point strategy for safeguarding endangered alpine flora.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "According to a statement issued by the regional hospital authority, emergency surgical wings were upgraded with modern diagnostic imaging units.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "Official release from the Ministry of Railways announced completion of track doubling along the hundred-kilometer industrial corridor.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "A peer-reviewed article in the New England Journal of Medicine evaluated long-term cardiovascular outcomes in an eight-year cohort study.",
+    "label": 0,
+    "category": "authoritative_news"
+  },
+  {
+    "text": "URGENT: Government announced Free Solar Scheme 2026! Click here to claim Rs 50000 cash subsidy immediately! Forward before it gets deleted!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "ALERT TO ALL VILLAGERS: Free Laptop and Tablet Scheme 2026 approved for every household. Click link http://free-yojana.fake-gov.in to apply now!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "ATTENTION: Your electricity power will be cut tonight at 9:30 PM due to pending bill. Call immediately at 9876543210 to prevent disconnection!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "WARNING: Gang of 25 child lifters and bacha chor entered our district dressed as sadhus! Keep children inside and forward to all groups immediately!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHOCKING TRUTH: Doctors hate this simple trick! Drink hot water with lemon and baking soda to cure all cancer in 48 hours guaranteed!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Bank Alert: Your SBI bank account KYC has been suspended today. Click here immediately to update your Aadhaar card or account blocked permanently!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Forward to everyone: NASA confirmed that tonight cosmic rays will pass near earth. Switch off your mobile phones between 12:30 AM to 3:30 AM to avoid radiation!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "MIRACLE DISCOVERY: Scientists expose secret that big pharma doesn't want you to know! Boil neem leaves with turmeric to destroy any virus completely!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHARE WITH EVERYONE: UNESCO just declared the national anthem of our country as the best in the world! Share maximum to make our nation proud!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "URGENT WARNING: Poisonous paracetamol tablets containing deadly virus found in local medical stores. Do NOT take any P-500 pills! Share to save lives!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "BOMBSHELL: New government order grants Rs 25000 monthly allowance to every unemployed youth. Click this WhatsApp link to register your bank details!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Forwarded as received: If you dial *#06# and send your phone number to this link you will receive 100 GB free internet 5G recharge for one year!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "BREAKING NEWS: Mind-blowing secret exposed! Mainstream media is hiding the fact that 5G towers are causing widespread fainting in rural areas!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "CRITICAL ALERT: Kidnapping gang active near village schools! They are using black vans to abduct children. Spread this message to every family group!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "UNBELIEVABLE: Instant money scheme! Government depositing Rs 5000 directly into all Jan Dhan accounts tonight. Click link to check your status!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Doctors admit: Eating raw onions with salt prevents 100% of heart attacks! Share before they take this video down!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHOCKING EXPOSE: Deep state conspiracy uncovered! They are secretly putting sterilization chemicals in tap water. Wake up sheeple and share!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Forward to at least 10 people or bad luck for 5 years! Government giving free electric scooters to all students who click here within 10 minutes!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "EMERGENCY ADVISORY: Drinking cold water after meals causes instant cancer! Forward to your loved ones immediately to save lives!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Viral audio message: High level officer secretly reveals that entire state will be under complete lockdown starting tomorrow morning at 6 AM!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "theonion.com: Department Of Transportation Builds Giant Ramp Over Entire Midwest To Save Drivers Time.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "The Babylon Bee reports: Local Church Replaces Pastor With AI Bot Programmed With Thirty-Minute Jokes.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "ClickHole: Heartbreaking: The Worst Person You Know Just Made A Great Point.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "theonion.com: Economists Warn That If People Keep Saving Money Entire Economy Will Collapse By Tuesday.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "The Babylon Bee: Environmentalists Urge Citizens To Stop Exhaling In Order To Curb Carbon Emissions.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "theonion.com: Area Man Passionate Defender Of What He Imagines Constitution To Be.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Waterford Whispers News: Local Man Solves Complex Middle Eastern Geopolitics Over Third Pint Of Stout.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "theonion.com: New Study Finds Leading Cause Of Brain Cancer Is Staring Directly At Solar Eclipse While Eating Raw Asbestos.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "The Babylon Bee: Tech Startup Invents Revolutionary New Way To Walk Somewhere Without Looking At Phone.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "theonion.com: Archeologists Unearth 4000-Year-Old To-Do List With Nothing Checked Off.",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "URGENT FORWARD: Free ration card holders will receive free gold coin under new festival scheme! Apply at link before quota ends today!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "TERRIFYING TRUTH: Mind-blowing secret exposed! Ancient Himalayan herb cures diabetes in 3 days without any insulin. Big pharma is censoring this!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "ALERT: Suspicious people in white ambulance offering free medical injections in village are actually organ trafficking gang! Beat them if seen!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "You won't believe what happened! Hidden truth about electricity meters that saves 90 percent bill using a simple magnet. Click here to watch video!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHARE MAXIMUM: Government launching instant subsidy scheme giving free tractor to every farmer with less than 5 acres. Register your phone number now!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "EXPOSED: Mainstream media won't tell you this! Secret cure for all joint pain found in common garden weed. Doctors terrified by this discovery!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "Forwarded message: All WhatsApp messages and calls will become chargeable at Rs 5 per day from midnight unless you forward this to 20 contacts!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "BOMBSHELL REVELATION: Leaked documents prove climate change is a complete hoax created to sell solar panels. Share before it gets censored!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "URGENT NOTICE: Bank account deactivation alert! Your ATM card is expired. Send your 16 digit number and OTP to customer care link immediately!",
+    "label": 1,
+    "category": "disinformation_scam"
+  },
+  {
+    "text": "SHOCKING DISCOVERY: Eating garlic on an empty stomach makes you immune to all biological diseases! Forward to protect every family member!",
+    "label": 1,
+    "category": "disinformation_scam"
+  }
+]
