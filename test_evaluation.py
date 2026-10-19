@@ -14,6 +14,7 @@ import sys
 import glob
 import time
 import csv
+import json
 
 # Auto-discover local virtual environment packages if running via system python
 _workspace_dir = os.path.dirname(os.path.abspath(__file__))
@@ -32,6 +33,7 @@ from detector.audio_detector import AudioDeepfakeDetector
 from detector.video_detector import VideoDeepfakeDetector
 from detector.document_detector import DocumentForensicsDetector
 from detector.news_detector import NewsVerificationEngine
+from detector.email_detector import EmailForensicsDetector
 
 
 def compute_metrics(y_true, y_pred, y_prob):
@@ -382,6 +384,43 @@ def evaluate_news(news_engine: NewsVerificationEngine):
     return metrics
 
 
+def evaluate_email(email_detector: EmailForensicsDetector):
+    print("\n" + "=" * 70)
+    print("EVALUATION 7: EMAIL SPAM & PHISHING BENCHMARK (Holdout Attacks vs Clean)")
+    print("=" * 70)
+
+    test_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "test_benchmark", "email", "email_phishing_test.json")
+    if not os.path.exists(test_file):
+        from scripts.build_email_dataset import build_and_save_dataset
+        build_and_save_dataset()
+
+    with open(test_file, "r", encoding="utf-8") as f:
+        test_samples = json.load(f)
+
+    start_t = time.time()
+    y_true, y_pred, y_prob = [], [], []
+
+    for item in test_samples:
+        t = item["text"]
+        lbl = int(item["label"])
+        res = email_detector.analyze(t)
+        pred = 1 if res["is_spam_or_phishing"] else 0
+        y_true.append(lbl)
+        y_pred.append(pred)
+        y_prob.append(res["fake_probability"])
+
+    dt = time.time() - start_t
+    metrics = compute_metrics(y_true, y_pred, y_prob)
+
+    print(f"Evaluated {metrics['total']} holdout phishing & clean emails in {dt:.1f}s ({dt/max(1, len(test_samples))*1000:.1f} ms/email)")
+    print(f"  • Accuracy:  {metrics['accuracy']*100:.2f}%")
+    print(f"  • Precision: {metrics['precision']*100:.2f}%")
+    print(f"  • Recall:    {metrics['recall']*100:.2f}%")
+    print(f"  • F1-Score:  {metrics['f1']:.4f}")
+    print(f"  • Confusion: {metrics['confusion']}")
+    return metrics
+
+
 def main():
     print("=" * 70)
     print("THE TURING PROJECT: OUT-OF-DISTRIBUTION INDEPENDENT TEST BENCHMARKS")
@@ -393,6 +432,7 @@ def main():
     video_detector = VideoDeepfakeDetector(device="cpu")
     document_detector = DocumentForensicsDetector(device="cpu")
     news_engine = NewsVerificationEngine(device="cpu")
+    email_detector = EmailForensicsDetector(device="cpu")
 
     evaluate_text(text_detector, max_samples=400)
     evaluate_image(image_detector, max_samples=200)
@@ -400,9 +440,10 @@ def main():
     evaluate_video(video_detector)
     evaluate_document(document_detector, num_samples=60)
     evaluate_news(news_engine)
+    evaluate_email(email_detector)
 
     print("\n" + "=" * 70)
-    print("ALL 6 INDEPENDENT TEST BENCHMARKS EVALUATED SUCCESSFULLY!")
+    print("ALL 7 INDEPENDENT TEST BENCHMARKS EVALUATED SUCCESSFULLY!")
     print("=" * 70)
 
 

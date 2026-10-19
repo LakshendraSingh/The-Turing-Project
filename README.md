@@ -1,18 +1,19 @@
 # The Turing Project (2026) — Multimodal Deepfake & Synthetic Media Detector
 
-[![Modality: 6-in-1](https://img.shields.io/badge/Modality-Image%20%7C%20Audio%20%7C%20Video%20%7C%20Doc%20%7C%20Text%20%7C%20News-blue.svg)](https://github.com)
+[![Modality: 7-in-1](https://img.shields.io/badge/Modality-Image%20%7C%20Audio%20%7C%20Video%20%7C%20Doc%20%7C%20Text%20%7C%20News%20%7C%20Email-blue.svg)](https://github.com)
 [![Deployment: Edge & Rural Villages](https://img.shields.io/badge/Deployment-Edge%20%7C%20Air--Gapped%20%7C%20Rural%20Villages-success.svg)](https://github.com)
 [![Provenance: C2PA Certified](https://img.shields.io/badge/Provenance-C2PA%20%26%20SynthID%20Decoded-green.svg)](https://c2pa.org)
 [![Privacy: 100% Local](https://img.shields.io/badge/Privacy-100%25%20On--Device%20Execution-orange.svg)](https://github.com)
 [![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://python.org)
 
-**The Turing Project** is an open-source, multimodal multimodal forensic detection engine engineered to detect synthetic and manipulated media across all **6 core modalities** — purpose-built for **Edge Deployment in resource-constrained environments (e.g., rural villages, offline community centers, remote clinics, and field operations)** without requiring cloud servers or active internet connectivity:
+**The Turing Project** is an open-source, multimodal forensic detection engine engineered to detect synthetic and manipulated media across all **7 core modalities** — purpose-built for **Edge Deployment in resource-constrained environments (e.g., rural villages, offline community centers, remote clinics, and field operations)** without requiring cloud servers or active internet connectivity:
 1. **Images** (FLUX.1, SD3/SD3.5, Midjourney v5/v6/v7, DALL-E 3, Google Imagen 3, StyleGAN)
 2. **Audio** (Voice cloning & neural TTS: ElevenLabs, VALL-E, Voicebox, XTTS, Bark, Diff-TTS, Suno, Udio, Google MusicFX)
 3. **Video** (Generative diffusion video: Sora, Kling, Gen-3 Alpha, Runway, Luma & Face Swaps: DeepFaceLab, SimSwap, Roop)
 4. **Text** (Frontier LLMs: GPT-4o, Claude 3.5, Gemini 1.5/2.0, Llama 3 & synthetic disinformation)
 5. **Documents** (Tampered PDFs, altered invoices, forged receipts, synthetic ID cards, modified contracts)
 6. **News & Claims** (Factuality auditing, sensationalism/clickbait scoring, rural scam patterns, satire detection & cross-modal cheapfakes)
+7. **Email & Spam** (Phishing campaigns, CEO fraud / BEC, credential harvesting lures, double-extension malware, SPF/DKIM spoofing)
 
 > [!IMPORTANT]
 > ### Disclaimer & Ethical AI Guidance
@@ -61,6 +62,7 @@ The system operates on a **triple-layer defense-in-depth model** that operates w
 | **Text** | • Sentence-level Burstiness variance (Fast-DetectGPT / Binoculars style)<br>• Bigram conditional entropy & perplexity curve<br>• Stylometric formulaic discourse markers & clichés<br>• Lexical diversity: Type-Token Ratio (TTR) & Hapax Legomena | • **Provenance Matching**: Statistical signature comparison against human academic / editorial baselines | GPT-4o, Claude 3.5 Sonnet, Gemini 1.5/2.0, Llama 3 |
 | **Document**| • PDF structural audit (Producer signature, incremental `%%EOF` update masks)<br>• ELA on document canvas for spliced numbers/stamps<br>• Font edge anti-aliasing gradient disparity (digital overlay vs scanned optical PSF)<br>• Copy-Move Forgery Detection (CMFD) spatial block clustering | • **PDF Revision Integrity**: Tracks incremental update masks and tampering software headers (*Photoshop, Canva, Sejda, iText*) | DocTamper, Forged Invoices, Spliced Receipts, Fake IDs |
 | **News & Claims** | • Sensationalism & Clickbait Index ($0.0 - 1.0$ emotional density)<br>• Viral Urgency & Forward-Pressure Scanners<br>• Grassroots & Rural Disinformation Pattern Heuristics<br>• Cross-Modal Cheapfake Stance Auditing (Authentic claim + Deepfake image) | • **Source Authority Registry**: Tier-1 wires (Reuters, AP), IFCN Fact-Checkers (Snopes, AltNews, BoomLive)<br>• **Satire Outlets**: The Onion, Babylon Bee, ClickHole<br>• **Attribution Quotient**: Named institutional sources vs anonymous hearsay | WhatsApp Viral Hoaxes, Fake Welfare Yojanas, Medical Miracles, Panic Rumors |
+| **Email** | • MIME header provenance & display name deception<br>• SPF/DKIM/DMARC authentication verification<br>• Obfuscated IP & punycode hyperlink detection<br>• Mismatched anchor text vs target href auditing<br>• Dangerous double-extension & macro attachment scans | • **Authentication Results Header**: Decodes cryptographic SPF, DKIM, DMARC alignment<br>• **X-Mailer & Message-ID Audit**: Validates sending software signatures | Phishing Campaigns, BEC / CEO Scams, Credential Harvesters, Malicious Payloads, Advance-Fee (419) Scams |
 
 ---
 
@@ -88,9 +90,9 @@ Grounded in **Condorcet's Jury Theorem**, deploying an odd number of independent
                       • Final Verdict: SYNTHETIC (Confidence: 93.15%)
 ```
 
-### 18 Separate Forensic Model Weights (3 per Modality)
+### 21 Separate Forensic Model Weights (3 per Modality)
 
-All 18 neural backbones are independently trained, calibrated, and persisted in `weights/`:
+All 21 neural backbones are independently trained, calibrated, and persisted in `weights/`:
 
 | Modality | Model 1 (Primary Neural Backbone) | Model 2 (Statistical / Wavelet / Flow) | Model 3 (Biomechanical / Micro-Artifact) | Odd Consensus Rule |
 | :--- | :--- | :--- | :--- | :--- |
@@ -100,6 +102,7 @@ All 18 neural backbones are independently trained, calibrated, and persisted in 
 | **Text** | **StylometricTextNet** (`text_model_1_stylometry.pt`, 305 KB)<br>• 24-dim perplexity variance, burstiness, and n-gram conditional entropy | **SentenceBurstinessNet** (`text_model_2_burstiness.pt`, 7.5 KB)<br>• 8-dim cross-sentence cognitive burstiness and token length irregularity | **DiscourseClicheNet** (`text_model_3_cliche.pt`, 7.3 KB)<br>• 8-dim frontier LLM formulaic transition markers and stylistic clichés | 3 votes cast<br>Consensus: >= 2 votes |
 | **Document**| **DocumentTamperNet** (`document_model_1_tamper.pt`, 21 KB)<br>• Multi-scale structural revision, metadata, and canvas splicing net | **ErrorLevelDisparityNet** (`document_model_2_ela.pt`, 7.3 KB)<br>• 8-dim JPEG quantization grid disparity and spatial ELA variance | **FontSharpnessDisparityNet** (`document_model_3_font.pt`, 7.3 KB)<br>• 8-dim subpixel anti-aliasing edge gradient and scan-PSF inconsistency | 3 votes cast<br>Consensus: >= 2 votes |
 | **News** | **NewsVerificationNet** (`news_model_1_backbone.pt`, 21 KB)<br>• 32-dim factuality, viral stance, and cross-source coherence network | **SensationalPanicNet** (`news_model_2_panic.pt`, 17 KB)<br>• 16-dim emotional panic intensity, forward-pressure, and clickbait urgency | **SourceCredibilityNet** (`news_model_3_credibility.pt`, 17 KB)<br>• 16-dim primary wire attribution quotient, institutional citations, and scam pattern net | 3 votes cast<br>Consensus: >= 2 votes |
+| **Email** | **EmailClassifierBackbone** (`email_model_1_backbone.pt`, 22 KB)<br>• 32-dim MIME headers, sender alignment, and structural forensic network | **EmailPhishingUrgencyNet** (`email_model_2_phishing.pt`, 17 KB)<br>• 16-dim credential harvesting prompts, countdown pressure, and financial coercion net | **EmailHeaderProvenanceNet** (`email_model_3_header.pt`, 17 KB)<br>• 16-dim display name spoofing, reply-to redirection, and mismatched anchor hyperlink net | 3 votes cast<br>Consensus: >= 2 votes |
 
 ### Democratic Polling Output Specification
 
@@ -178,6 +181,17 @@ To ensure scientific rigor, reproducibility, and transparent attribution, every 
 - **Model 3 — SourceCredibilityNet (`news_model_3_credibility.pt`)**:
   - *Academic Literature*: Baly et al., *"Predicting Factuality of Reporting and Bias of News Media Sources"*, EMNLP 2018; International Fact-Checking Network (IFCN) Code of Principles.
   - *Forensic Focus*: 16-dimensional institutional wire attribution patterns (Reuters, AP, AFP, BBC, Nature, Lancet) cross-referenced against debunked scam archives from Snopes, Alt News, Boom Live, and PIB Fact Check.
+
+#### 7. Email Forensics Committee
+- **Model 1 — EmailClassifierBackbone (`email_model_1_backbone.pt`)**:
+  - *Academic Literature*: Toolan & Carthy, *"Feature Selection for Spam and Phishing Detection"*, Computers & Security; Fette et al., *"Learning to Detect Phishing Emails"*, WWW.
+  - *Data & Calibration*: 32-dimensional dense feature vector modeling display name spoofing, SPF/DKIM cryptographic headers, attachment threat scores, and credential harvesting patterns.
+- **Model 2 — EmailPhishingUrgencyNet (`email_model_2_phishing.pt`)**:
+  - *Academic Literature*: Cialdini, *"Influence: Science and Practice"*; Ferreira et al., *"Principles of Persuasion in Social Engineering and Phishing"*, IEEE Security & Privacy.
+  - *Forensic Focus*: 16-dimensional emotional coercion, artificial countdown timers (*"Within 24 hours"*, *"Account suspended"*), password reset lures, and fraudulent remittance demands.
+- **Model 3 — EmailHeaderProvenanceNet (`email_model_3_header.pt`)**:
+  - *Academic Literature*: Le et al., *"PhishDef: URL-Based Phishing Detection Using Machine Learning"*; RFC 7208 (SPF) & RFC 6376 (DKIM).
+  - *Forensic Focus*: 16-dimensional header sender-envelope alignment, free webmail executive spoofing, reply-to redirection, and mismatched anchor text vs hyperlink target hrefs.
 
 ---
 
@@ -294,6 +308,7 @@ Evaluated on completely unseen holdout datasets across all 6 modalities (unwater
 | **Video** | [SDFVD Real MP4 vs DeepFaceLab Face Swaps](https://huggingface.co/datasets/Hemgg/SDFVD-video-dataset) | 10 | **100.00%** | **100.00%** | **100.00%** | **1.0000** |
 | **Document** | [Multimodal Document Forgery & Tampering](https://github.com/Alibaba-Research/AdvancedLiterateMachinery/tree/main/DocumentTampering) | 60 | **100.00%** | **100.00%** | **100.00%** | **1.0000** |
 | **News & Claims** | [Turing Wire News vs Rural WhatsApp Scams](https://github.com/LakshendraSingh/The-Turing-Project) | 20 | **100.00%** | **100.00%** | **100.00%** | **1.0000** |
+| **Email** | [Turing Email Phishing & Spam Holdout](https://github.com/LakshendraSingh/The-Turing-Project) | 8 | **87.50%** | **80.00%** | **100.00%** | **0.8889** |
 
 ---
 
@@ -360,8 +375,8 @@ To guarantee empirical rigor, cross-generator generalization, and full reproduci
 misinfo-detector/
 ├── detector/                      # Core Forensic Modules
 │   ├── __init__.py                # Package exports & public API (scan)
-│   ├── polling.py                 # Democratic Polling Engine & 6 Modality Committees
-│   ├── ensemble_models.py         # 12 Specialized PyTorch Ensemble Neural Backbones
+│   ├── polling.py                 # Democratic Polling Engine & 7 Modality Committees
+│   ├── ensemble_models.py         # 14 Specialized PyTorch Ensemble Neural Backbones
 │   ├── fusion.py                  # Multimodal Fusion Engine & Automagic Dispatcher
 │   ├── metadata_forensics.py      # C2PA Manifest, EXIF, ID3 & Container Auditor
 │   ├── image_detector.py          # Dual-Stream 2D-FFT / PRNU / ELA Vision Detector
@@ -370,30 +385,35 @@ misinfo-detector/
 │   ├── text_detector.py           # Burstiness / Perplexity / Discourse NLP Detector
 │   ├── document_detector.py       # PDF Revision & Multi-scale Document Forgery
 │   ├── news_detector.py           # Factuality, Satire & Rural Scam ML Verification Engine
+│   ├── email_detector.py          # Email Spam, Phishing, Spoofing & Payload Security Engine
 │   └── datasets_catalog.py        # 2026 Benchmark Datasets Registry
 ├── data/                          # Benchmark Datasets & Holdout Test Suites
-│   ├── benchmark/news/            # Fake news and rural scam training datasets
-│   └── test_benchmark/news/       # Out-of-distribution holdout test datasets
+│   ├── benchmark/                 # Training benchmark datasets (news, email, text, audio, cifake)
+│   └── test_benchmark/            # Out-of-distribution holdout test datasets
 ├── scripts/                       # Dataset Builders & Weight Generators
 │   ├── build_news_dataset.py      # Curates fake news & rural disinformation corpus
-│   └── download_and_build_ensemble_weights.py # Generates 18 calibrated ensemble weights
+│   ├── build_email_dataset.py     # Curates phishing, BEC, and corporate email corpus
+│   ├── train_email_model.py       # Trains email neural classification models
+│   └── download_and_build_ensemble_weights.py # Generates calibrated ensemble weights
 ├── tests/                         # Unit & Integration Tests (100% Pass)
 │   ├── test_auto_entrypoint.py    # Automagic dispatch unit tests
 │   ├── test_metadata_forensics.py # C2PA & EXIF unit tests
-│   ├── test_detector.py           # Core 5-modality unit tests
+│   ├── test_detector.py           # Core modality unit tests
 │   ├── test_document_extraction.py# PDF & image extraction tests
-│   └── test_news_engine.py        # News veracity & cheapfake unit tests
+│   ├── test_news_engine.py        # News veracity & cheapfake unit tests
+│   └── test_email_detector.py     # Email spam, spoofing & phishing unit tests
 ├── web/                           # Interactive Web UI Assets
 │   ├── index.html                 # Cyber-Forensic Radar, Polling Committee & ELA Dashboard
 │   ├── index.css                  # Dark-mode forensic stylesheet & voting card styles
 │   └── app.js                     # Live radar visualization & committee polling render
-├── weights/                       # 18 Calibrated Neural Weights (3 per Modality)
+├── weights/                       # 21 Calibrated Neural Weights (3 per Modality)
 │   ├── image_model_1_dualdomain.pt / image_model_2_spectral.pt / image_model_3_mesonet.pt
 │   ├── audio_model_1_acoustic.pt   / audio_model_2_vocoder.pt  / audio_model_3_biomechanic.pt
 │   ├── video_model_1_spatiotemporal.pt / video_model_2_flow.pt / video_model_3_boundary.pt
 │   ├── text_model_1_stylometry.pt  / text_model_2_burstiness.pt / text_model_3_cliche.pt
 │   ├── document_model_1_tamper.pt  / document_model_2_ela.pt   / document_model_3_font.pt
-│   └── news_model_1_backbone.pt    / news_model_2_panic.pt     / news_model_3_credibility.pt
+│   ├── news_model_1_backbone.pt    / news_model_2_panic.pt     / news_model_3_credibility.pt
+│   └── email_model_1_backbone.pt   / email_model_2_phishing.pt / email_model_3_header.pt
 ├── cli.py                         # Single-Entry Command Line Interface
 ├── web_server.py                  # Local Forensic Dashboard Server
 ├── train.py                       # Modular Multi-Domain Training Pipeline

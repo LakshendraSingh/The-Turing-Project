@@ -17,6 +17,7 @@ from .video_detector import VideoDeepfakeDetector
 from .text_detector import TextDeepfakeDetector
 from .document_detector import DocumentForensicsDetector
 from .news_detector import NewsVerificationEngine
+from .email_detector import EmailForensicsDetector
 
 # Known file extensions by modality
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff", ".tif", ".avif", ".heic"}
@@ -24,9 +25,11 @@ AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".aac", ".flac", ".ogg", ".wma", ".opus", 
 VIDEO_EXTS = {".mp4", ".mov", ".avi", ".mkv", ".webm", ".m4v", ".flv", ".wmv"}
 DOC_EXTS = {".pdf", ".docx", ".doc"}
 TEXT_EXTS = {".txt", ".md", ".rtf", ".csv", ".log", ".json"}
-MEDIA_EXTS = IMAGE_EXTS | AUDIO_EXTS | VIDEO_EXTS | DOC_EXTS | TEXT_EXTS
+EMAIL_EXTS = {".eml", ".msg"}
+MEDIA_EXTS = IMAGE_EXTS | AUDIO_EXTS | VIDEO_EXTS | DOC_EXTS | TEXT_EXTS | EMAIL_EXTS
 
 NEWS_PREFIXES = ("news:", "claim:", "factcheck:", "fact-check:", "breaking:", "rumor:", "forwarded:", "verify:")
+EMAIL_PREFIXES = ("email:", "mail:", "phish:", "spam:")
 
 
 def identify_input_modality(target: Any) -> Tuple[str, Any, Dict[str, Any]]:
@@ -50,10 +53,15 @@ def identify_input_modality(target: Any) -> Tuple[str, Any, Dict[str, Any]]:
                 return ("video", target_stripped, {})
             if ext in DOC_EXTS:
                 return ("document", target_stripped, {"is_pdf": ext == ".pdf"})
+            if ext in EMAIL_EXTS:
+                return ("email", target_stripped, {})
             if ext in TEXT_EXTS:
                 try:
                     with open(target_stripped, "r", encoding="utf-8", errors="ignore") as f:
-                        return ("text", f.read(), {})
+                        content = f.read()
+                        if "From:" in content and ("Subject:" in content or "To:" in content):
+                            return ("email", content, {})
+                        return ("text", content, {})
                 except Exception:
                     pass
 
@@ -83,12 +91,21 @@ def identify_input_modality(target: Any) -> Tuple[str, Any, Dict[str, Any]]:
         if has_media_ext or (has_path_sep and len(target_stripped.splitlines()) == 1):
             raise FileNotFoundError(f"Specified media file does not exist: '{target_stripped}'")
 
-        # Check if text is prefixed as a news/claim/rumor verification request
+        # Check if text is prefixed as a news or email verification request
         lower_target = target_stripped.lower()
+        for prefix in EMAIL_PREFIXES:
+            if lower_target.startswith(prefix):
+                clean_text = target_stripped[len(prefix):].strip()
+                return ("email", clean_text, {})
+
         for prefix in NEWS_PREFIXES:
             if lower_target.startswith(prefix):
                 clean_text = target_stripped[len(prefix):].strip()
                 return ("news", clean_text, {})
+
+        # If text looks like a standard MIME email with headers
+        if "from:" in lower_target and ("subject:" in lower_target or "to:" in lower_target):
+            return ("email", target_stripped, {})
 
         # Otherwise, treat string as raw text content (articles, prompts, claims)
         return ("text", target_stripped, {})
@@ -156,6 +173,7 @@ class MultimodalFusionDetector:
         self.text_detector = TextDeepfakeDetector(device=device)
         self.document_detector = DocumentForensicsDetector(device=device)
         self.news_engine = NewsVerificationEngine()
+        self.email_detector = EmailForensicsDetector(device=device)
 
     def scan(self, target: Any = None, **kwargs) -> ForensicReport:
         """
@@ -193,6 +211,9 @@ class MultimodalFusionDetector:
         elif modality == "news":
             merged_args.pop("news_input", None)
             return self.scan_multimodal(news_input=processed_target, **merged_args)
+        elif modality == "email":
+            merged_args.pop("email_input", None)
+            return self.scan_multimodal(email_input=processed_target, **merged_args)
         elif modality == "text":
             merged_args.pop("text_input", None)
             return self.scan_multimodal(text_input=processed_target, **merged_args)
@@ -208,6 +229,7 @@ class MultimodalFusionDetector:
         text_input: Optional[str] = None,
         document_input=None,
         news_input: Optional[str] = None,
+        email_input: Optional[str] = None,
         is_pdf: bool = False,
     ) -> ForensicReport:
         """
@@ -280,6 +302,19 @@ class MultimodalFusionDetector:
                     if any(k in s.lower() for k in ["authoritative", "fact-checker", "credible", "authentic"]):
                         all_signals.append(f"[News] {s}")
 
+        # 7. Email Spam & Phishing Modality
+        if email_input is not None:
+            res = self.email_detector.analyze(email_input)
+            modality_results["email"] = res
+            fake_probabilities.append(res["fake_probability"])
+            weights.append(1.2)  # High security priority
+            if res["is_spam_or_phishing"]:
+                all_signals.extend([f"[Email] {s}" for s in res["forensic_signals"]])
+            elif res["forensic_signals"]:
+                for s in res["forensic_signals"]:
+                    if any(k in s.lower() for k in ["verified", "authentic", "clean"]):
+                        all_signals.append(f"[Email] {s}")
+
         # If no input provided
         if not fake_probabilities:
             return ForensicReport(
@@ -321,6 +356,14 @@ class MultimodalFusionDetector:
             elif img_fake < 0.30 and news_fake >= 0.75:
                 discrepancies.append(
                     f"Context Hijacking Detected: Real, authentic camera photograph repurposed with a fabricated disinformation claim (News fake p={news_fake:.2f})."
+                )
+
+        if "email" in modality_results and "document" in modality_results:
+            email_fake = modality_results["email"]["fake_probability"]
+            doc_fake = modality_results["document"]["fake_probability"]
+            if doc_fake >= 0.70 and email_fake < 0.40:
+                discrepancies.append(
+                    f"Trojan Attachment Detected: Authentic-looking email carrier paired with a forged/tampered document attachment (Document fake p={doc_fake:.2f})."
                 )
 
         # Calculate weighted average fake probability

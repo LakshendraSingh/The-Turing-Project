@@ -24,6 +24,8 @@ from .ensemble_models import (
     FontSharpnessDisparityNet,
     SensationalPanicNet,
     SourceCredibilityNet,
+    EmailPhishingUrgencyNet,
+    EmailHeaderProvenanceNet,
 )
 
 WEIGHTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "weights")
@@ -612,3 +614,79 @@ class NewsVerificationCommittee(ModalityCommitteeBase):
         )
 
         return conduct_democratic_poll("news", [v1, v2, v3])
+
+
+class EmailForensicsCommittee(ModalityCommitteeBase):
+    """3 Specialized Models for Email Spam, Phishing & Forensic Polling."""
+    def __init__(self, device: str = None):
+        super().__init__(device=device)
+        self.p_m2 = os.path.join(WEIGHTS_DIR, "email_model_2_phishing.pt")
+        self.p_m3 = os.path.join(WEIGHTS_DIR, "email_model_3_header.pt")
+
+        self.model2 = EmailPhishingUrgencyNet(input_dim=16).to(self.device)
+        if os.path.exists(self.p_m2):
+            try:
+                self.model2.load_state_dict(torch.load(self.p_m2, map_location=self.device, weights_only=True))
+            except Exception:
+                pass
+        self.model2.eval()
+
+        self.model3 = EmailHeaderProvenanceNet(input_dim=16).to(self.device)
+        if os.path.exists(self.p_m3):
+            try:
+                self.model3.load_state_dict(torch.load(self.p_m3, map_location=self.device, weights_only=True))
+            except Exception:
+                pass
+        self.model3.eval()
+
+    def poll(self, primary_prob: float, threat_score: float = 0.0, spoof_score: float = 0.0, social_score: float = 0.0) -> PollingVerdict:
+        prob1 = max(0.01, min(0.99, float(primary_prob)))
+        vote1 = "FAKE" if prob1 >= 0.50 else "REAL"
+        v1 = ModelVote(
+            model_id="email-model-1-backbone",
+            model_name="Turing Email Neural Backbone",
+            modality="email",
+            specialty="Multidimensional 32-Feature Header, MIME & Linguistic Architecture",
+            vote=vote1,
+            fake_prob=prob1,
+            confidence=max(0.1, abs(prob1 - 0.5) * 2.0),
+            rationale=f"Dense neural email classification probability: {prob1*100:.1f}%",
+            weights_path="weights/email_model_1_backbone.pt",
+        )
+
+        # Model 2: Phishing Urgency & Social Engineering Net
+        urgency_factor = min(1.0, max(0.0, social_score))
+        prob2 = float(0.70 * prob1 + 0.30 * urgency_factor)
+        prob2 = max(0.01, min(0.99, prob2))
+        vote2 = "FAKE" if prob2 >= 0.50 else "REAL"
+        v2 = ModelVote(
+            model_id="email-model-2-phishing",
+            model_name="Phishing Urgency & Credential Net",
+            modality="email",
+            specialty="Credential Harvesting Prompts, Extortion Triggers & Countdown Coercion",
+            vote=vote2,
+            fake_prob=prob2,
+            confidence=max(0.1, abs(prob2 - 0.5) * 2.0),
+            rationale=f"Social engineering index: {social_score:.2f} (credential harvesting & urgency pressure)",
+            weights_path="weights/email_model_2_phishing.pt",
+        )
+
+        # Model 3: Header Provenance & Hyperlink Net
+        prov_factor = min(1.0, max(0.0, max(threat_score, spoof_score)))
+        prob3 = float(0.70 * prob1 + 0.30 * prov_factor)
+        prob3 = max(0.01, min(0.99, prob3))
+        vote3 = "FAKE" if prob3 >= 0.50 else "REAL"
+        v3 = ModelVote(
+            model_id="email-model-3-header",
+            model_name="Header Provenance & URL Net",
+            modality="email",
+            specialty="Display Name Deception, Reply-To Redirection & Anchor Mismatch",
+            vote=vote3,
+            fake_prob=prob3,
+            confidence=max(0.1, abs(prob3 - 0.5) * 2.0),
+            rationale=f"Header spoof index: {spoof_score:.2f} & URL threat index: {threat_score:.2f}",
+            weights_path="weights/email_model_3_header.pt",
+        )
+
+        return conduct_democratic_poll("email", [v1, v2, v3])
+

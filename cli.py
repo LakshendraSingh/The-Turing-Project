@@ -147,6 +147,7 @@ def main():
     scan_p.add_argument("--text", type=str, help="Explicit text string or path to text file")
     scan_p.add_argument("--doc", type=str, help="Explicit path to document page image or PDF")
     scan_p.add_argument("--news", type=str, help="Explicit news headline, viral claim, or rumor to verify")
+    scan_p.add_argument("--email", type=str, help="Explicit email message text or path to .eml file")
     scan_p.add_argument("--json", action="store_true", help="Output results in JSON format")
 
     args = parser.parse_args()
@@ -189,6 +190,7 @@ def main():
                 text_input=text_content,
                 document_input=args.doc,
                 news_input=args.news,
+                email_input=args.email,
             )
         else:
             report = detector.scan_multimodal(
@@ -198,6 +200,7 @@ def main():
                 text_input=text_content,
                 document_input=args.doc,
                 news_input=args.news,
+                email_input=args.email,
             )
 
         res_dict = report.to_dict()

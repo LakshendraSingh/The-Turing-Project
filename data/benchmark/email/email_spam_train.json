@@ -1,0 +1,86 @@
+[
+  {
+    "id": "phish_001",
+    "label": 1.0,
+    "type": "credential_harvesting",
+    "text": "From: \"PayPal Security Center\" <support@service-update-security-alert.xyz>\nTo: victim@example.com\nSubject: URGENT: Your PayPal account has been limited! Immediate action required.\nDate: Mon, 19 Oct 2026 10:14:00 +0000\nAuthentication-Results: spf=fail; dkim=fail; dmarc=fail\n\nDear Valued Customer,\n\nWe detected unauthorized login attempts to your PayPal wallet from an unrecognized device in Vladivostok, Russia. For your safety, your account access has been temporarily restricted.\n\nYou must verify your password and confirm your account within 24 hours, or your account will be closed permanently and remaining funds confiscated.\n\nClick here to verify: https://paypal.com.secure-login-verification.xyz/signin\n\nSincerely,\nPayPal Security Department"
+  },
+  {
+    "id": "phish_002",
+    "label": 1.0,
+    "type": "ceo_fraud_bec",
+    "text": "From: \"Satya Nadella (CEO)\" <ceo.direct.urgent@gmail.com>\nTo: finance@enterprise-corp.com\nReply-To: executive-wire-transfers@consultant.ru\nSubject: Quick confidential request - Wire transfer today\nDate: Mon, 19 Oct 2026 11:22:15 +0000\n\nAre you at your desk? I am currently in an all-day executive board meeting and cannot take calls.\n\nWe are closing a confidential overseas acquisition today. I need you to initiate an urgent payment of $48,500 immediately to our outside legal counsel via wire transfer.\n\nPlease confirm when you are ready so I can forward the bank details. Keep this strictly between us until the press release.\n\nSent from my iPad"
+  },
+  {
+    "id": "phish_003",
+    "label": 1.0,
+    "type": "malware_double_extension",
+    "text": "From: \"Billing Dept\" <invoices@quick-accounting-service.top>\nTo: target@company.org\nSubject: OVERDUE: Unpaid Invoice #INV-984210 - Final Notice\nContent-Disposition: attachment; filename=\"Overdue_Invoice_984210.pdf.exe\"\n\nAttached is the final notice for invoice #INV-984210 which is now 45 days past due.\nPlease review the attached invoice immediately to avoid legal collection action and credit damage.\n\nAttachment: Overdue_Invoice_984210.pdf.exe\n\nRegards,\nAccounts Receivable"
+  },
+  {
+    "id": "phish_004",
+    "label": 1.0,
+    "type": "anchor_text_deception",
+    "text": "From: \"Microsoft 365 Admin\" <no-reply@auth-notifications.club>\nTo: user@firm.com\nSubject: Warning: Your Microsoft 365 Mailbox quota exceeded (99% full)\n\nDear User,\n\nYour email mailbox has exceeded its storage limit. You will not be able to send or receive new emails until you re-authenticate your mailbox storage.\n\n<a href=\"http://192.168.10.45/harvest/login.php\">https://login.microsoftonline.com/common/oauth2/authorize</a>\n\nImmediate response required within 12 hours to prevent permanent email deletion."
+  },
+  {
+    "id": "phish_005",
+    "label": 1.0,
+    "type": "419_advance_fee",
+    "text": "From: \"Barrister Ahmed Bello\" <barrister.bello.chambers@yahoo.com>\nSubject: CONFIDENTIAL: Unclaimed inheritance fund ($18.5 Million USD)\n\nDear Friend,\n\nI am the personal attorney to a late foreign national who died in a tragic plane crash along with his immediate family. He left behind a deposit of Eighteen Million Five Hundred Thousand United States Dollars ($18,500,000.00) in a top security bank here.\n\nBecause you share the same surname, I seek your partnership to present you as the legal heir. We will share the funds 50/50. Please reply with your full legal name, private telephone number, and bank account details immediately."
+  },
+  {
+    "id": "phish_006",
+    "label": 1.0,
+    "type": "crypto_extortion",
+    "text": "From: \"DarkWeb Hacker Group\" <hacker@ransom-syndicate.live>\nSubject: Security Alert: Your device has been compromised! Payment required.\n\nI have placed a remote trojan on your computer and recorded your webcam while you visited adult websites. I have copied your entire contact list from WhatsApp and email.\n\nIf you do not send $1,200 in Bitcoin (BTC) to wallet bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh within 24 hours, I will send the video to all your friends, family, and coworkers.\n\nDo not try to contact the police or the timer will expire immediately."
+  },
+  {
+    "id": "phish_007",
+    "label": 1.0,
+    "type": "homograph_attack",
+    "text": "From: \"Apple Support\" <notifications@xn--appl-43a.com>\nSubject: Critical: Your Apple ID has been suspended\n\nYour Apple ID was used to sign in from an unknown device in Nigeria.\nTo safeguard your iCloud photos and contacts, verify your identity immediately:\nhttp://xn--appl-43a.com/verify-identity/session_id=89234"
+  },
+  {
+    "id": "phish_008",
+    "label": 1.0,
+    "type": "lottery_scam",
+    "text": "From: \"UK National Lottery\" <prizes@lottery-winner-notification.loan>\nSubject: CONGRATULATIONS! You have won \u00a32,500,000 in the EuroMillions draw!\n\nYour email was randomly selected from internet users across the globe.\nTo claim your lottery winnings, send processing fee of \u00a3350 via Western Union or Google Play gift cards to our claim agent."
+  },
+  {
+    "id": "real_001",
+    "label": 0.0,
+    "type": "corporate_standup",
+    "text": "From: \"Priya Sharma\" <priya.sharma@techcorp.internal>\nTo: eng-team@techcorp.internal\nSubject: Engineering Standup Notes \u2014 Monday Oct 19\nDate: Mon, 19 Oct 2026 09:30:00 +0000\n\nHi Team,\n\nQuick summary from today's sprint sync:\n1. Backend: Payment webhook refactor merged into staging (PR #412).\n2. Mobile: iOS release candidate 2.4.1 submitted to TestFlight.\n3. QA: Regression testing across auth flows ongoing, zero P0 blockers found.\n\nNext sprint planning is scheduled for Wednesday at 2:00 PM in Conference Room B.\nHave a great week!\n\nBest,\nPriya Sharma\nEngineering Lead | TechCorp"
+  },
+  {
+    "id": "real_002",
+    "label": 0.0,
+    "type": "github_notification",
+    "text": "From: \"GitHub\" <notifications@github.com>\nTo: developer@github.com\nSubject: [LakshendraSingh/The-Turing-Project] Pull Request #12 opened: Add email spam detection engine\nDate: Mon, 19 Oct 2026 14:00:22 +0000\nAuthentication-Results: dkim=pass (good signature); spf=pass\n\n@contributor opened a pull request in LakshendraSingh/The-Turing-Project:\n\nFeature: Modular Email Security & Phishing Forensic Engine\n- Extends multimodal fusion pipeline to support RFC 822 / MIME emails\n- Evaluated against standard phishing and corporate communication benchmarks\n\nView on GitHub: https://github.com/LakshendraSingh/The-Turing-Project/pull/12\nYou are receiving this because you authored the repository."
+  },
+  {
+    "id": "real_003",
+    "label": 0.0,
+    "type": "calendar_invitation",
+    "text": "From: \"Arun Verma\" <arun.verma@university.edu>\nTo: lakshendra@university.edu\nSubject: Invitation: B.Tech Major Project Review @ Thu Oct 22, 2026 3pm - 4pm (IST)\nDate: Mon, 19 Oct 2026 12:00:00 +0000\n\nYou have been invited to the following event:\nEvent: B.Tech Major Project Mid-Term Evaluation\nWhen: Thursday Oct 22, 2026 \u00b7 3pm \u2013 4pm (IST)\nWhere: Department Seminar Hall 3\n\nAgenda:\n- 15 min project architecture walkthrough\n- 10 min live demonstration\n- 15 min evaluation panel Q&A\n\nPlease bring 3 printed copies of your project report synopsis."
+  },
+  {
+    "id": "real_004",
+    "label": 0.0,
+    "type": "transactional_receipt",
+    "text": "From: \"Amazon.in Orders\" <auto-confirm@amazon.in>\nTo: customer@gmail.com\nSubject: Your Amazon.in order #408-9812401-1928471 has been dispatched\nAuthentication-Results: spf=pass; dkim=pass\n\nHello,\n\nYour package containing 'Clean Code: A Handbook of Agile Software Craftsmanship' is on its way.\nEstimated delivery date: Wednesday, 21 October 2026.\n\nCourier: BlueDart Express\nTracking ID: AWB982140129\n\nTrack your package directly inside the Amazon app or visit:\nhttps://www.amazon.in/gp/your-account/order-history\n\nThank you for shopping with us."
+  },
+  {
+    "id": "real_005",
+    "label": 0.0,
+    "type": "airline_boarding",
+    "text": "From: \"Air India Bookings\" <noreply@airindia.com>\nTo: passenger@corp.com\nSubject: Web Check-In Confirmation: Flight AI-804 (DEL to BOM)\nDate: Mon, 19 Oct 2026 16:45:00 +0000\n\nDear Passenger,\n\nYour web check-in is complete for flight AI-804.\nSeat: 12F (Window)\nDeparture: Indira Gandhi International Airport (Terminal 3)\nBoarding Time: 07:15 AM\n\nPlease ensure you carry a valid government-issued photo ID at airport security.\nHave a pleasant flight."
+  },
+  {
+    "id": "real_006",
+    "label": 0.0,
+    "type": "academic_newsletter",
+    "text": "From: \"ACM TechNews\" <technews@acm.org>\nTo: acm-members@acm.org\nSubject: ACM TechNews: Recent Advances in Digital Media Provenance and Cryptographic Watermarking\nAuthentication-Results: spf=pass; dkim=pass\n\nACM TechNews \u2014 October 2026 Edition\nIn this issue:\n1. C2PA consortium releases upgraded manifest specifications for edge devices.\n2. University researchers unveil benchmark dataset for acoustic voice cloning forensics.\n3. Call for papers: IEEE International Workshop on Information Forensics and Security.\n\nRead full articles at https://technews.acm.org\nTo update your subscription preferences, visit your ACM member dashboard."
+  }
+]

@@ -21,8 +21,12 @@ weights/*.onnx
 data/
 !data/benchmark/news/
 !data/benchmark/news/*
+!data/benchmark/email/
+!data/benchmark/email/*
 !data/test_benchmark/news/
 !data/test_benchmark/news/*
+!data/test_benchmark/email/
+!data/test_benchmark/email/*
 datasets/
 cache/
 logs/

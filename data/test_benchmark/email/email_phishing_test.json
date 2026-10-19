@@ -1,0 +1,50 @@
+[
+  {
+    "id": "test_phish_001",
+    "label": 1.0,
+    "type": "bank_phish",
+    "text": "From: \"HDFC Bank NetBanking\" <alert@hdfc-security-update-portal.top>\nTo: customer@gmail.com\nSubject: URGENT: Your Debit Card has been blocked due to suspicious activity\nAuthentication-Results: spf=fail; dkim=fail\n\nDear Customer,\n\nWe noticed unusual withdrawal attempts on your HDFC account. Your card is temporarily suspended.\nPlease update your credentials and verify your password within 24 hours at http://hdfc-security-update-portal.top/login.php\n\nFailure to act will result in complete account closure.\nHDFC Security Team"
+  },
+  {
+    "id": "test_phish_002",
+    "label": 1.0,
+    "type": "macro_malware",
+    "text": "From: \"Accounts Payable\" <invoices@vendor-remittance.xyz>\nSubject: Remittance Advice - Urgent Payment confirmation\nContent-Disposition: attachment; filename=\"Payment_Remittance_Advice.xlsm\"\n\nPlease find attached the signed remittance confirmation. Enable macros upon opening to view encrypted financial table.\n\nAttachment: Payment_Remittance_Advice.xlsm"
+  },
+  {
+    "id": "test_phish_003",
+    "label": 1.0,
+    "type": "free_webmail_ceo",
+    "text": "From: \"Sundar Pichai (CEO)\" <sundar.pichai.personal@gmail.com>\nReply-To: confidential.fund.handler@mail.ru\nSubject: Quick favor - Are you available right now?\n\nI am currently tied up in client meetings. Need you to purchase 10 Apple gift cards ($100 each) for our customer appreciation event.\nSend photos of the scratch codes on the back to this email directly. I will reimburse you by tomorrow morning."
+  },
+  {
+    "id": "test_phish_004",
+    "label": 1.0,
+    "type": "cloud_storage_harvest",
+    "text": "From: \"Google Drive Notification\" <share-docs@drive-shared-file-access.buzz>\nSubject: Document shared with you: 'Q3 Financial Bonus Allocation.pdf'\n\nA confidential document has been shared with you on Google Drive.\n<a href=\"http://185.220.101.5/google_phish/index.html\">https://drive.google.com/file/d/10842918471/view</a>\n\nSign in with your Google account credentials to view the document."
+  },
+  {
+    "id": "test_clean_001",
+    "label": 0.0,
+    "type": "code_review",
+    "text": "From: \"Kavita Rao\" <kavita.rao@techcorp.internal>\nTo: lakshendra@techcorp.internal\nSubject: Code review feedback on PR #89 (Forensic Fusion Pipeline)\nDate: Mon, 19 Oct 2026 15:10:00 +0000\n\nHey Lakshendra,\n\nLeft a few comments on the PR:\n- Loved the modular separation in detector/fusion.py!\n- Let's make sure the unit tests run under 20s in CI.\n- Added one nit on error handling in the MIME parser.\n\nLGTM once those minor comments are addressed.\n\nCheers,\nKavita"
+  },
+  {
+    "id": "test_clean_002",
+    "label": 0.0,
+    "type": "payroll_stub",
+    "text": "From: \"TechCorp Payroll\" <payroll-noreply@techcorp.internal>\nTo: employee@techcorp.internal\nSubject: Your TechCorp Payslip for October 2026 is now available\nAuthentication-Results: spf=pass; dkim=pass\n\nDear Employee,\n\nYour monthly compensation statement for the period ending 31 October 2026 has been generated.\nYou can view and download your payslip by logging into the internal Workday portal:\nhttps://workday.techcorp.internal/payroll\n\nFor any tax deduction queries, please raise a ticket with HR Helpdesk.\n\nWarm regards,\nGlobal Payroll Operations"
+  },
+  {
+    "id": "test_clean_003",
+    "label": 0.0,
+    "type": "zoom_meeting",
+    "text": "From: \"Zoom Video Communications\" <no-reply@zoom.us>\nTo: attendee@example.com\nSubject: Meeting Scheduled: Architecture Review with Deepmind AI Team\nDate: Mon, 19 Oct 2026 17:00:00 +0000\nAuthentication-Results: spf=pass; dkim=pass\n\nHi there,\n\nDeepmind AI Team is inviting you to a scheduled Zoom meeting.\nTopic: Architecture Review: Edge Forensics Pipeline\nTime: Oct 20, 2026 04:00 PM India\n\nJoin Zoom Meeting: https://zoom.us/j/98124018241\nMeeting ID: 981 2401 8241\n\nPasscode: 481920"
+  },
+  {
+    "id": "test_clean_004",
+    "label": 0.0,
+    "type": "github_sponsor",
+    "text": "From: \"GitHub Sponsors\" <sponsors-noreply@github.com>\nTo: lakshendra@users.noreply.github.com\nSubject: Monthly Sponsorship Receipt for Open Source Projects\nAuthentication-Results: spf=pass; dkim=pass\n\nThank you for supporting open source software!\nYour monthly sponsorship of $10 to PyTorch Foundation has been processed successfully.\n\nTransaction ID: gh_sp_9812401\nPayment Method: Mastercard ending in 4102\n\nManage your sponsorships: https://github.com/sponsors"
+  }
+]

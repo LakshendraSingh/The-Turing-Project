@@ -72,6 +72,11 @@
         <span class="tab-name">News & Claims</span>
         <span class="tab-pill">Factuality / Scams</span>
       </button>
+      <button class="nav-tab" data-modality="email" id="tab-email">
+        <span class="tab-badge">EML</span>
+        <span class="tab-name">Email & Spam</span>
+        <span class="tab-pill">Phishing / BEC / Spoofing</span>
+      </button>
     </nav>
 
     <!-- Main Workspace Grid -->
@@ -167,6 +172,19 @@
             <button class="btn-preset" data-preset="news-panic">Child Lifter Mob Rumor</button>
             <button class="btn-preset" data-preset="news-credible">Credible Wire News (Reuters/WHO)</button>
             <button class="btn-preset" data-preset="news-satire">Satire Article (The Onion)</button>
+          </div>
+        </div>
+
+        <!-- 7. Email & Spam Panel -->
+        <div class="modality-view" id="view-email">
+          <div class="text-input-wrap">
+            <textarea id="input-email-area" class="code-textarea" placeholder="Paste full email text (including From:, Subject:, Body) or message content to inspect sender spoofing, SPF/DKIM flags, dangerous attachments, and credential harvesting lures..." rows="8"></textarea>
+          </div>
+          <div class="preset-row">
+            <span class="preset-label">Quick Test Presets:</span>
+            <button class="btn-preset" data-preset="email-phishing">PayPal Phishing Attack</button>
+            <button class="btn-preset" data-preset="email-ceo">Executive Impersonation (BEC)</button>
+            <button class="btn-preset" data-preset="email-clean">Authentic Work Email</button>
           </div>
         </div>
 

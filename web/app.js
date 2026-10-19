@@ -48,6 +48,14 @@ const DATASETS = [
     size: "100+ vetted verification benchmarks across 5 high-impact categories",
     metric: "Accuracy / Macro F1 (100% holdout validation)",
     desc: "Targeted verification benchmark addressing edge vulnerability scenarios: rural welfare scheme scams, bank panic runs, child abduction mob rumors, and election rigging disinformation."
+  },
+  {
+    name: "Enron & Modern Phishing Forensics (2025-2026)",
+    modality: "Email",
+    generators: "BEC, CEO impersonation, credential harvesting, double-extension malware, 419 scams",
+    size: "500,000+ emails",
+    metric: "Accuracy / Precision @ 1% FPR",
+    desc: "Comprehensive benchmark evaluating MIME headers, SPF/DKIM authentication, anchor-href mismatches, and coercive social engineering."
   }
 ];
 
@@ -646,6 +654,136 @@ const PRESETS = {
     },
     metrics: { fft: "Satire", ela: "Absurdity 0.89", prnu: "Humor Source", neural: "0.895" },
     text: "WASHINGTON — In a groundbreaking bipartisan breakthrough, Congress unanimously passes emergency legislation requiring all citizens to high-five at least three strangers each morning to rebuild national unity."
+  },
+  "email-phishing": {
+    fake_prob: 0.94,
+    is_fake: true,
+    verdict: "MALICIOUS PHISHING / CREDENTIAL HARVESTING (UNANIMOUS 3/3)",
+    signals: [
+      "Democratic Polling Committee: Committee of 3 specialized models polled: 3 voted FAKE, 0 voted REAL. Democratic verdict: UNANIMOUS (3/3) SYNTHETIC / DEEPFAKE.",
+      "Display Name Deception: Claims to be 'PayPal Security' but sending domain is 'paypal-service-alert.xyz'",
+      "Authentication Failed: SPF and DKIM cryptographic alignment failed",
+      "Credential Harvesting Lure: Artificial urgency demanding password verification within 24 hours",
+      "Obfuscated Destination: Link redirects to external unverified IP address"
+    ],
+    polling: {
+      num_models: 3,
+      consensus_type: "UNANIMOUS",
+      consensus_ratio: "3/3",
+      is_synthetic: true,
+      tally: { FAKE: 3, REAL: 0 },
+      votes: [
+        {
+          model_name: "Turing Email Neural Backbone",
+          vote: "FAKE",
+          fake_prob: 0.95,
+          specialty: "Multidimensional 32-Feature Header, MIME & Linguistic Architecture",
+          rationale: "Dense neural email classifier flags credential harvesting pattern"
+        },
+        {
+          model_name: "Phishing Urgency & Credential Net",
+          vote: "FAKE",
+          fake_prob: 0.94,
+          specialty: "Credential Harvesting Prompts, Extortion Triggers & Countdown Coercion",
+          rationale: "High urgency factor detected ('immediate action required within 24 hours')"
+        },
+        {
+          model_name: "Header Provenance & URL Net",
+          vote: "FAKE",
+          fake_prob: 0.93,
+          specialty: "Display Name Deception, Reply-To Redirection & Anchor Mismatch",
+          rationale: "Spoofed sender domain and failed SPF/DKIM verification"
+        }
+      ]
+    },
+    metrics: { fft: "SPF/DKIM Fail", ela: "Urgency 0.95", prnu: "Lookalike Dom", neural: "0.952" },
+    text: "From: \"PayPal Security Department\" <security-alerts@paypal-service-verify.xyz>\nTo: target@victim.com\nSubject: URGENT: Your PayPal account has been limited! Immediate action required\nAuthentication-Results: spf=fail; dkim=fail\n\nDear Valued Customer,\nWe detected unauthorized login attempts. You must verify your password and confirm your account within 24 hours at http://192.168.1.1/login or your account will be closed."
+  },
+  "email-ceo": {
+    fake_prob: 0.92,
+    is_fake: true,
+    verdict: "BUSINESS EMAIL COMPROMISE / CEO FRAUD (UNANIMOUS 3/3)",
+    signals: [
+      "Democratic Polling Committee: Committee of 3 specialized models polled: 3 voted FAKE, 0 voted REAL. Democratic verdict: UNANIMOUS (3/3) SYNTHETIC / DEEPFAKE.",
+      "Executive Impersonation: Display name claims CEO identity from free webmail provider",
+      "Reply-To Redirection: Responses redirected to external untrusted address",
+      "Financial Coercion: Demands urgent confidential wire transfer"
+    ],
+    polling: {
+      num_models: 3,
+      consensus_type: "UNANIMOUS",
+      consensus_ratio: "3/3",
+      is_synthetic: true,
+      tally: { FAKE: 3, REAL: 0 },
+      votes: [
+        {
+          model_name: "Turing Email Neural Backbone",
+          vote: "FAKE",
+          fake_prob: 0.93,
+          specialty: "Multidimensional 32-Feature Header, MIME & Linguistic Architecture",
+          rationale: "Executive free-webmail mismatch flags CEO fraud"
+        },
+        {
+          model_name: "Phishing Urgency & Credential Net",
+          vote: "FAKE",
+          fake_prob: 0.91,
+          specialty: "Credential Harvesting Prompts, Extortion Triggers & Countdown Coercion",
+          rationale: "Confidential wire transfer demand detected"
+        },
+        {
+          model_name: "Header Provenance & URL Net",
+          vote: "FAKE",
+          fake_prob: 0.92,
+          specialty: "Display Name Deception, Reply-To Redirection & Anchor Mismatch",
+          rationale: "Reply-To header mismatches sender address"
+        }
+      ]
+    },
+    metrics: { fft: "Free Webmail", ela: "Wire Demand", prnu: "Reply Mismatch", neural: "0.928" },
+    text: "From: \"Satya Nadella (CEO)\" <ceo.direct.urgent@gmail.com>\nTo: finance@enterprise-corp.com\nReply-To: executive-wire-transfers@consultant.ru\nSubject: Quick confidential request - Wire transfer today\n\nAre you at your desk? I need you to initiate an urgent payment of $48,500 immediately to our outside legal counsel via wire transfer. Keep this confidential."
+  },
+  "email-clean": {
+    fake_prob: 0.04,
+    is_fake: false,
+    verdict: "AUTHENTIC & VERIFIED CORRESPONDENCE (UNANIMOUS 3/3)",
+    signals: [
+      "Democratic Polling Committee: Committee of 3 specialized models polled: 0 voted FAKE, 3 voted REAL. Democratic verdict: UNANIMOUS (3/3) AUTHENTIC.",
+      "Cryptographic Verification: SPF and DKIM signatures verified valid",
+      "Consistent Provenance: Internal corporate domain matches named sender",
+      "Benign Content: Engineering sprint notes free of urgency triggers or payment lures"
+    ],
+    polling: {
+      num_models: 3,
+      consensus_type: "UNANIMOUS",
+      consensus_ratio: "3/3",
+      is_synthetic: false,
+      tally: { FAKE: 0, REAL: 3 },
+      votes: [
+        {
+          model_name: "Turing Email Neural Backbone",
+          vote: "REAL",
+          fake_prob: 0.04,
+          specialty: "Multidimensional 32-Feature Header, MIME & Linguistic Architecture",
+          rationale: "Normal linguistic entropy and internal sender alignment"
+        },
+        {
+          model_name: "Phishing Urgency & Credential Net",
+          vote: "REAL",
+          fake_prob: 0.03,
+          specialty: "Credential Harvesting Prompts, Extortion Triggers & Countdown Coercion",
+          rationale: "Zero urgency pressure or credential prompts detected"
+        },
+        {
+          model_name: "Header Provenance & URL Net",
+          vote: "REAL",
+          fake_prob: 0.05,
+          specialty: "Display Name Deception, Reply-To Redirection & Anchor Mismatch",
+          rationale: "Valid cryptographic provenance and verified domain"
+        }
+      ]
+    },
+    metrics: { fft: "SPF/DKIM Pass", ela: "Clean Headers", prnu: "Trusted Host", neural: "0.041" },
+    text: "From: \"Priya Sharma\" <priya.sharma@techcorp.internal>\nTo: eng-team@techcorp.internal\nSubject: Engineering Standup Notes — Monday Oct 19\nAuthentication-Results: spf=pass; dkim=pass\n\nHi Team,\nQuick summary from today's sprint sync:\n1. Backend: Payment webhook refactor merged into staging (PR #412).\n2. QA: Regression testing ongoing, zero P0 blockers found.\nNext sprint planning is scheduled for Wednesday at 2:00 PM.\n\nBest,\nPriya Sharma"
   }
 };
 
@@ -688,10 +826,13 @@ function setupPresets() {
         if (activePresetData.text) {
           const newsArea = document.getElementById("input-news-area");
           const textArea = document.getElementById("input-text-area");
+          const emailArea = document.getElementById("input-email-area");
           if (newsArea && presetKey.startsWith("news-")) {
             newsArea.value = activePresetData.text;
           } else if (textArea && presetKey.startsWith("text-")) {
             textArea.value = activePresetData.text;
+          } else if (emailArea && presetKey.startsWith("email-")) {
+            emailArea.value = activePresetData.text;
           }
         }
         updateResultsUI(activePresetData);
@@ -710,6 +851,9 @@ function setupScanButton() {
     if (currentModality === "news") {
       const txt = document.getElementById("input-news-area").value;
       payload = { news: txt || activePresetData.text, verify_news: true };
+    } else if (currentModality === "email") {
+      const txt = document.getElementById("input-email-area").value;
+      payload = { email: txt || activePresetData.text };
     } else if (currentModality === "text") {
       const txt = document.getElementById("input-text-area").value;
       payload = { text: txt || activePresetData.text };

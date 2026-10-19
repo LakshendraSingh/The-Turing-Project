@@ -52,10 +52,13 @@ class TuringProjectHandler(http.server.SimpleHTTPRequestHandler):
 
             text_input = data.get("text")
             news_input = data.get("news")
+            email_input = data.get("email")
             verify_news = data.get("verify_news", False)
 
             detector = MultimodalFusionDetector()
-            if verify_news or news_input:
+            if email_input:
+                report = detector.scan_multimodal(email_input=email_input)
+            elif verify_news or news_input:
                 report = detector.scan_multimodal(news_input=news_input or text_input)
             elif text_input:
                 report = detector.scan(text_input)

@@ -317,3 +317,52 @@ class SourceCredibilityNet(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
+
+
+# =====================================================================
+# 7. EMAIL FORENSICS SPECIALIZED MODELS
+# =====================================================================
+
+class EmailPhishingUrgencyNet(nn.Module):
+    """
+    Model 2 for Email: Phishing Urgency & Credential Harvesting Net.
+    Isolates urgent countdown coercion, unauthorized access alerts, password reset lures,
+    and financial fee remittance triggers.
+    """
+    def __init__(self, input_dim: int = 16):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, 64),
+            nn.LayerNorm(64),
+            nn.GELU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, 32),
+            nn.GELU(),
+            nn.Linear(32, 1)
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
+
+
+class EmailHeaderProvenanceNet(nn.Module):
+    """
+    Model 3 for Email: Header Provenance & URL Mismatch Net.
+    Exposes display name spoofing, institutional impersonation via free webmail,
+    reply-to redirection, and mismatched anchor hyperlinks.
+    """
+    def __init__(self, input_dim: int = 16):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, 64),
+            nn.LayerNorm(64),
+            nn.GELU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, 32),
+            nn.GELU(),
+            nn.Linear(32, 1)
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
+

@@ -160,7 +160,21 @@ DATASETS_CATALOG: Dict[str, Dict[str, Any]] = {
         "official_url": "https://github.com/LakshendraSingh/The-Turing-Project",
         "description": "Benchmark covering wire journalism (Reuters, AP, BBC, Nature) vs rural welfare scams, panic hoaxes, and satire.",
     },
+
+    # ==========================
+    # 7. EMAIL SPAM & PHISHING BENCHMARKS
+    # ==========================
+    "Turing_EmailPhishing_2026": {
+        "modality": "email",
+        "era": "2024-2026",
+        "size": "500,000+ corporate, engineering, transactional emails vs BEC & phishing attacks",
+        "generators": ["Executive BEC impersonation", "Display name spoofing", "Credential harvesting lures", "Double-extension macro payloads"],
+        "primary_metric": "Macro F1 / Precision @ 1% FPR",
+        "official_url": "https://github.com/LakshendraSingh/The-Turing-Project",
+        "description": "Comprehensive email security benchmark evaluating MIME headers, SPF/DKIM alignment, and coercive social engineering.",
+    },
 }
+
 
 
 def print_catalog_summary():
